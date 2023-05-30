@@ -19,11 +19,11 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     const postsToDelete = ops.posts.deletes.map((del) => del.uri)
     const postsToCreate = ops.posts.creates
       .filter((create) => {
-        // only alf-related posts
+        // only desi-related posts
         return create.record.text.toLowerCase().includes('desi')
       })
       .map((create) => {
-        // map alf-related posts to a db row
+        // map desi-related posts to a db row
         return {
           uri: create.uri,
           cid: create.cid,
